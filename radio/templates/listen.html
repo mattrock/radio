@@ -76,63 +76,52 @@ $(document).ready(function(){
 </script>
 <style>
 <!--
-/*.demo-container {
+/*.radio-player {
 	border: 1px solid #009BE3;
 	padding:0 20px;
 	font-family: "Myriad Pro Regular","Trebuchet MS";
 }*/
 
-/*.demo-container a, .demo-container a:link, .demo-container a:visited, .demo-container a:hover, .demo-container a:focus, .demo-container a:active {
+/*.radio-player a, .radio-player a:link, .radio-player a:visited, .radio-player a:hover, .radio-player a:focus, .radio-player a:active {
 	color: #009BE3;
 }*/
-.demo-container ul {
+.radio-player ul {
 	list-style-type: none;
 	padding: 0;
 	margin: 1em 0;
 	width: 100%;
 	overflow: hidden;
 }
-.demo-container ul span {
+.radio-player ul span {
 	color: #A0A600;
 }
-.demo-container li {
+.radio-player li {
 	float: left;
 	margin-right: 1em;
-}
-.demo-container p span.track-name {
-	color: #CC0090;
 }
 -->
 </style>
 </head>
 
 <body>
-  <div class="navbar" ></div>
-
-<div class="row"> 
-  <!--!<div class="span8 hidden-phone hidden-tablet">-->
+<div class="navbar" ></div>
+<div class="row">
   <div id="jquery_jplayer"></div>
-  <div id="jp_container" class="demo-container hero-unit">
+  <div id="jp_container" class="radio-player hero-unit">
     <ul>
-      <!--<li><span>Select a Station : </span></li>-->
       <li><a href="http://operator.applespajamas.com:8000/axemp3hifi" class="track track-default">RockRadio</a></li>
-      <li><span><span class="jp-current-time"></span></span></li>
-    </ul>
-    <!--<p> <span class="play-state"></span> : <span class="track-name">nothing</span> 
-      at <span class="extra-play-info"></span>
-				of <span class="jp-duration"></span>, which is 
-      <span class="jp-current-time"></span> </p>-->
-    <ul>
-      <li><a class="jp-play btn" href="#">${h.icon('play')} Play</a></li>
-      <li><a class="jp-pause btn" href="#">${h.icon('pause')} Pause</a></li>
-      <li><a class="jp-stop btn" href="#">${h.icon('stop')} Stop</a></li>
+      <li><span class="jp-current-time"></span></li>
     </ul>
     <ul>
-      <!--<li>volume :</li>-->
-      <li><a class="jp-mute btn" href="#">${h.icon('stop')} Mute</a></li>
-      <li><a class="jp-unmute btn" href="#">${h.icon('stop')} Unmute</a></li>
-      <li> <a class="jp-volume-bar btn" href="#">|&lt;----------&gt;|</a></li>
-      <li><a class="jp-volume-max btn" href="#">Max</a></li>
+      <li><a class="jp-play btn btn-mini btn-success" href="#">${h.icon('play', 1)} Play</a></li>
+      <li><a class="jp-pause btn btn-mini btn-info" href="#">${h.icon('pause', 1)} Pause</a></li>
+      <li><a class="jp-stop btn btn-mini btn-primary" href="#">${h.icon('stop', 1)} Stop</a></li>
+    </ul>
+    <ul>
+      <li><a class="jp-mute btn btn-mini btn-warning" href="#">${h.icon('volume-off', 1)} Mute</a></li>
+      <li><a class="jp-unmute btn btn-mini btn-danger" href="#">${h.icon('volume-down', 1)} Unmute</a></li>
+      <li><a class="jp-volume-bar btn btn-mini btn-inverse" href="#">${h.icon('volume-down', 1)}${h.icon('chevron-left', 1)}${h.icon('minus', 1)}${h.icon('minus', 1)}${h.icon('chevron-right', 1)}${h.icon('volume-up', 1)}</a></li>
+      <li><a class="jp-volume-max btn btn-mini btn-primary" href="#">${h.icon('volume-up', 1)}Max</a></li>
     </ul>
   </div>
 </div>
