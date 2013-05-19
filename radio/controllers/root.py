@@ -65,6 +65,11 @@ class RootController(BaseController):
         """Handle the 'about' page."""
         return dict(page='about')
 
+    @expose('radio.templates.listen')
+    def about(self):
+        """Handle the 'listen' page."""
+        return dict(page='listen')
+
     @expose('radio.templates.environ')
     def environ(self):
         """This method showcases TG's access to the wsgi environment."""
