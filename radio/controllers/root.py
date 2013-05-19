@@ -66,7 +66,7 @@ class RootController(BaseController):
         return dict(page='about')
 
     @expose('radio.templates.listen')
-    def about(self):
+    def listen(self):
         """Handle the 'listen' page."""
         return dict(page='listen')
 

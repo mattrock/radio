@@ -17,7 +17,7 @@ $(document).ready(function(){
 		my_extraPlayInfo = $("#jp_container .extra-play-info");
 
 	// Some options
-	var	opt_play_first = false, // If true, will attempt to auto-play the default track on page loads. No effect on mobile devices, like iOS.
+	var	opt_play_first = true, // If true, will attempt to auto-play the default track on page loads. No effect on mobile devices, like iOS.
 		opt_auto_play = true, // If true, when a track is selected, it will auto-play.
 		opt_text_playing = "Now playing", // Text when playing
 		opt_text_selected = "Track selected"; // Text when not playing
@@ -76,78 +76,65 @@ $(document).ready(function(){
 </script>
 <style>
 <!--
-
 /*.demo-container {
 	border: 1px solid #009BE3;
 	padding:0 20px;
 	font-family: "Myriad Pro Regular","Trebuchet MS";
 }*/
 
-.demo-container a, .demo-container a:link, .demo-container a:visited, .demo-container a:hover, .demo-container a:focus, .demo-container a:active {
+/*.demo-container a, .demo-container a:link, .demo-container a:visited, .demo-container a:hover, .demo-container a:focus, .demo-container a:active {
 	color: #009BE3;
-}
-
+}*/
 .demo-container ul {
-	list-style-type:none;
-	padding:0;
-	margin:1em 0;
-	width:100%;
-	overflow:hidden;
+	list-style-type: none;
+	padding: 0;
+	margin: 1em 0;
+	width: 100%;
+	overflow: hidden;
 }
-
 .demo-container ul span {
 	color: #A0A600;
 }
-
 .demo-container li {
-	float:left;
-	margin-right:1em;
+	float: left;
+	margin-right: 1em;
 }
-
 .demo-container p span.track-name {
 	color: #CC0090;
 }
-
 -->
 </style>
-
 </head>
 
 <body>
+  <div class="navbar" ></div>
+
 <div class="row"> 
   <!--!<div class="span8 hidden-phone hidden-tablet">-->
-  <div class="hero-unit">
-    <h1>Listen!</h1>
-    <p> <a class="btn btn-success btn-large" href="${tg.url('/play/hifi.pls')}"> ${h.icon('play')} HiFi ${h.icon('music')} </a> <a class="btn btn-info btn-large" href="${tg.url('/play/lofi.pls')}"> ${h.icon('play')} LoFi ${h.icon('headphones')} </a> </p>
+  <div id="jquery_jplayer"></div>
+  <div id="jp_container" class="demo-container hero-unit">
+    <ul>
+      <!--<li><span>Select a Station : </span></li>-->
+      <li><a href="http://operator.applespajamas.com:8000/axemp3hifi" class="track track-default">RockRadio</a></li>
+      <li><span><span class="jp-current-time"></span></span></li>
+    </ul>
+    <!--<p> <span class="play-state"></span> : <span class="track-name">nothing</span> 
+      at <span class="extra-play-info"></span>
+				of <span class="jp-duration"></span>, which is 
+      <span class="jp-current-time"></span> </p>-->
+    <ul>
+      <li><a class="jp-play btn" href="#">${h.icon('play')} Play</a></li>
+      <li><a class="jp-pause btn" href="#">${h.icon('pause')} Pause</a></li>
+      <li><a class="jp-stop btn" href="#">${h.icon('stop')} Stop</a></li>
+    </ul>
+    <ul>
+      <!--<li>volume :</li>-->
+      <li><a class="jp-mute btn" href="#">${h.icon('stop')} Mute</a></li>
+      <li><a class="jp-unmute btn" href="#">${h.icon('stop')} Unmute</a></li>
+      <li> <a class="jp-volume-bar btn" href="#">|&lt;----------&gt;|</a></li>
+      <li><a class="jp-volume-max btn" href="#">Max</a></li>
+    </ul>
   </div>
-  		<div id="jquery_jplayer"></div>
-		<div id="jp_container" class="demo-container">
-			<ul>
-				<li><span>Select a Station : </span></li>
-				<li><a href="http://operator.applespajamas.com:8000/axemp3hifi" class="track track-default">RockRadio</a></li>
-			</ul>
-			<p>
-				<span class="play-state"></span> :
-				<span class="track-name">nothing</span>
-				<!--at <span class="extra-play-info"></span>
-				of <span class="jp-duration"></span>, which is-->
-				<span class="jp-current-time"></span>
-			</p>
-			<ul>
-				<li><a class="jp-play" href="#">Play</a></li>
-				<li><a class="jp-pause" href="#">Pause</a></li>
-				<li><a class="jp-stop" href="#">Stop</a></li>
-			</ul>
-			<ul>
-				<li>volume :</li>
-				<li><a class="jp-mute" href="#">Mute</a></li>
-				<li><a class="jp-unmute" href="#">Unmute</a></li>
-				<li> <a class="jp-volume-bar" href="#">|&lt;----------&gt;|</a></li>
-				<li><a class="jp-volume-max" href="#">Max</a></li>
-			</ul>
-		</div>
-
 </div>
-<div class="notice">by MattRock</div>
 </body>
 </html>
