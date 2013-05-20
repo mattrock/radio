@@ -4,37 +4,30 @@
 <head>
 <title>${page}</title>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
-<script type="text/javascript" src="javascript/jquery.jplayer.min.js"></script>
+<script type="text/javascript" src="${tg.url('/public/javascript/jquery.jplayer.min.js')}"></script>
 <script type="text/javascript">
 //<![CDATA[
 
 $(document).ready(function(){
 
-	// Local copy of jQuery selectors, for performance.
 	var	my_jPlayer = $("#jquery_jplayer"),
 		my_trackName = $("#jp_container .track-name"),
 		my_playState = $("#jp_container .play-state"),
 		my_extraPlayInfo = $("#jp_container .extra-play-info");
 
-	// Some options
-	var	opt_play_first = true, // If true, will attempt to auto-play the default track on page loads. No effect on mobile devices, like iOS.
-		opt_auto_play = true, // If true, when a track is selected, it will auto-play.
-		opt_text_playing = "Now playing", // Text when playing
-		opt_text_selected = "Track selected"; // Text when not playing
-
-	// A flag to capture the first track
+	var	opt_play_first = true,
+		opt_auto_play = true,
+		opt_text_playing = "Now playing", 
+		opt_text_selected = "Track selected";
 	var first_track = true;
 
-	// Change the time format
 	$.jPlayer.timeFormat.padMin = false;
 	$.jPlayer.timeFormat.padSec = false;
 	$.jPlayer.timeFormat.sepMin = " min ";
 	$.jPlayer.timeFormat.sepSec = " sec";
 
-	// Initialize the play state text
 	my_playState.text(opt_text_selected);
 
-	// Instance jPlayer
 	my_jPlayer.jPlayer({
 		ready: function () {
 			$("#jp_container .track-default").click();
@@ -51,10 +44,10 @@ $(document).ready(function(){
 		ended: function(event) {
 			my_playState.text(opt_text_selected);
 		},
-		swfPath: "js",
+		swfPath: "javascript",
 		cssSelectorAncestor: "#jp_container",
 		supplied: "mp3",
-		wmode: "window"
+		wmode: "window",
 	});
 
 	// Create click handlers for the different tracks
@@ -76,15 +69,6 @@ $(document).ready(function(){
 </script>
 <style>
 <!--
-/*.radio-player {
-	border: 1px solid #009BE3;
-	padding:0 20px;
-	font-family: "Myriad Pro Regular","Trebuchet MS";
-}*/
-
-/*.radio-player a, .radio-player a:link, .radio-player a:visited, .radio-player a:hover, .radio-player a:focus, .radio-player a:active {
-	color: #009BE3;
-}*/
 .radio-player ul {
 	list-style-type: none;
 	padding: 0;
@@ -111,6 +95,7 @@ $(document).ready(function(){
     <ul>
       <li><a href="http://operator.applespajamas.com:8000/axemp3hifi" class="track track-default">RockRadio</a></li>
       <li><span class="jp-current-time"></span></li>
+      <li><span class="play-state"></span></li>
     </ul>
     <ul>
       <li><a class="jp-play btn btn-mini btn-success" href="#">${h.icon('play', 1)} Play</a></li>
