@@ -19,9 +19,9 @@
     <div class="navbar-inner">
       <div class="container"> <a class="brand" href="#"><img src="${tg.url('/images/turbogears_logo.png')}" alt="TurboGears 2"/> ${getattr(tmpl_context, 'project_name', 'turbogears2')}</a>
         <ul class="nav nav-pills">
-          <li class="${('', 'active')[defined('page') and page=='index']} "><a href="${tg.url('/')}">${h.icon('home')} Play</a></li>
-          <li class="${('', 'active')[defined('page') and page=='about']} "><a href="${tg.url('/listen')}">${h.icon('play')} Web Play</a></li>
-          <li class="${('', 'active')[defined('page') and page=='about']} "><a href="${tg.url('/about')}">${h.icon('info-sign')} About</a></li>
+          <li class="${('', 'active')[defined('page') and page=='index']} "><a href="${tg.url('/')}">${h.icon('home',1)} Play</a></li>
+          <li class="${('', 'active')[defined('page') and page=='about']} "><a href="${tg.url('/listen')}">${h.icon('play',1)} Web Play</a></li>
+          <li class="${('', 'active')[defined('page') and page=='about']} "><a href="${tg.url('/about')}">${h.icon('info-sign',1)} About</a></li>
           <!--<li class="${('', 'active')[defined('page') and page=='data']}"><a href="${tg.url('/data')}">Serving Data</a></li>-->
           <!--<li class="${('', 'active')[defined('page') and page=='environ']}"><a href="${tg.url('/environ')}">WSGI Environment</a></li>-->
         </ul>
